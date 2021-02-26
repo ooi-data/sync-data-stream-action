@@ -1,11 +1,8 @@
 import os
-import time
 import subprocess
-import datetime
-import yaml
 import sys
 
-from github import GitHub
+from github import Github
 
 IGNORE_REPOS = [
     'ooi-harvester',
