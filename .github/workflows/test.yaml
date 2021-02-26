@@ -1,0 +1,19 @@
+name: Test CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    name: Test action
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run Action
+        id: action_run
+        uses: ./
+        with:
+          seconds: 5
+      - name: Get the output time
+        run: echo "The time was ${{ steps.action_run.outputs.time }}"
