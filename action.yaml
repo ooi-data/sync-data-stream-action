@@ -1,14 +1,22 @@
-name: "GH Action.py"
-description: 'Github actions starter for python script with container.'
+name: "OOI Data Stream Repo Sync"
+description: 'Github actions for syncing data stream repositories in ooi-data'
 author: "lsetiawan <https://github.com/lsetiawan>"
 inputs:
-  seconds:  # id of input
-    description: 'Number of seconds to  wait'
+  GH_ORG:  # id of input
+    description: 'Github Organization String.'
     required: true
-    default: "10"
+    default: "ooi-data"
+  GH_MAIN_BRANCH:
+    description: 'Main Branch to run the workflow in.'
+    required: false
+    default: "main"
+  DEBUG:
+    description: "Debug flag. If activated, won't actually run workflow"
+    required: false
+    default: "false"
 outputs:
-  time: # id of output
-    description: 'The time the script finished.'
+  sync_status: # id of output
+    description: 'Syncing Status'
 runs:
   using: 'docker'
   image: 'Dockerfile'
